@@ -1,55 +1,279 @@
 @import "./pallete.scss";
 
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   color: $base-color;
+  font-family: "Roboto";
+  position: relative;
+  width: 100%;
 }
 
-header {
-  width: 70%;
-}
-
-header {
+.header {
   display: flex;
   padding: 16px 4px;
+  width: 95%;
+  @media (min-width: $breakpoint-tablet) {
+    width: 80%;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    width: 60%;
+  }
 }
 
-.logoContainer {
-  margin: 0 auto;
-  margin-top: 16px;
-  padding: 8px;
+.carousel {
+  position: relative;
+  width: 100%;
+  border-bottom: 3px solid $base-color;
+  overflow: hidden;
+  @media (min-width: $breakpoint-desktop) {
+    width: 84%;
+  }
+
+}
+.carouselContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+.carousel__slide {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
-.logo {
-  max-width: 100%;
-  max-height: 100%;
+.carousel__image {
+  width: 100%;
 }
 
-.configContainer {
-  margin: 0;
-  font-size: 14px;
+#prevButton {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  left: 4%;
+  font-size: 28px;
+  color: white;
+  opacity: 0.9;
+  cursor: pointer;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 38px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    left: 0;
+    font-size: 48px;
+  }
+}
+
+#nextButton {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  right: 4%;
+  font-size: 28px;
+  opacity: 0.9;
+  color: white;
+  cursor: pointer;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 38px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    right: 0;
+    font-size: 48px;
+  }
+}
+
+
+
+.widgetContainer {
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+}
+
+.widget {
+  margin-top: 20px;
+  position: relative;
+  color: white;
+  background-color: #458f98;
+  margin-bottom: -50px;
+  z-index: 10;
+  width: 200px;
+  font-size: 11px;
+  @media (min-width: $breakpoint-tablet) {
+    margin-bottom: -250px;
+    font-size: 14px;
+    width: 250px;
+  } 
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+    width: 300px;
+  } 
+
+}
+
+.widget__main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  padding: 4px;
+  margin-top: 24px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 16px;
+  } 
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 18px;
+  } 
+}
+
+.temperature__image {
+  width: 35%;
+  padding: 0 16px;
+}
+
+.temperature__icon {
+  width: 100%;
+}
+
+.widget__days {
+  display: none;
+  flex-direction: row;
+  padding: 4px;
+
+  @media (min-width: $breakpoint-tablet) {
+    display: flex;
+    font-size: 13px;
+
+  } 
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  } 
+}
+
+.day {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  width: 25%;
+  margin-top: -8px;
 }
 
-.configElement {
+
+
+.header__logo {
+  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 16px;
+  padding: 4px;
+}
+
+.config {
+  margin: 0;
+  display: flex;
+  font-size: 11px;
+  flex-direction: column;
+  align-items: flex-end;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 14px;
+  }
+}
+
+.config__element {
   margin-bottom: 8px;
 }
 
-.menuContainer {
-  width: 70%;
-  margin-top: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.hamburger {
+  display: inline-block;
+  padding: 5px;
+  width: 35px;
+  &:hover {
+    cursor: pointer;
+    color: red;
+  }
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
 }
 
-.languageContainer {
+.hamburger__bar {
+  height: 2px;
+  border-radius: 2px;
+  background-color: $base-color;
+  transition: background-color 0.4s;
+  margin: 5px 0;
+  &:nth-child(1) {
+    margin-top: 2px;
+  }
+
+  &:nth-child(3) {
+    margin-bottom: 2px;
+  }
+}
+
+.hamburgerContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.menuContainer {
+  position: relative;
+  z-index: 11;
+  width: 95%;
+  @media (min-width: $breakpoint-tablet) {
+    width: 80%;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    width: 60%;
+  }
+}
+
+.menu {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 11px;
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 16px;
+    font-size: 13px;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 15px;
+  }
+}
+
+.menu__element {
+  border-bottom: thin solid $base-color;
+  padding: 4px;
+  width: 100px;
+  background-color: rgba(white, 0.9);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  @media (min-width: $breakpoint-tablet) {
+    border: none;
+    padding: 0;
+    width: unset;
+  }
+}
+
+.language {
   display: flex;
   justify-content: flex-end;
 }
@@ -62,16 +286,647 @@ header {
   }
 }
 
-.onFieldMenu {
-  display: flex;
-  flex-direction: column;
+.content {
+  width: 95%;
+  @media (min-width: $breakpoint-tablet) {
+    width: 80%;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    width: 60%;
+  }
+  &--center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &--absolute {
+    position: absolute;
+  }
+  &--tournament {
+    margin-top: 20px;
+    @media (min-width: $breakpoint-tablet) {
+      margin-top: 36px;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      margin-top: 64px;
+    }
+  }
+  &--field {
+    margin-bottom: 72px;
+  }
+  &--golfabc {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+  }
+  &--contact {
+    width: 95%;
+    @media (min-width: $breakpoint-tablet) {
+      width: 85%;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      width: 65%;
+    }
+  }
 }
 
-.onFieldMenuElement {
-  padding: 8px 4px;
-  border-bottom: 1px solid $base-color;
+.section--first {
+  padding-top: 34px;
+  @media (min-width: $breakpoint-tablet) {
+    padding-top: 64px;
+  }
 }
 
 .field {
+  font-size: 9px;
+  color: white;
+  height: 100%;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 10px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 13px;
+  }
+}
+
+.field__menu {
+  height: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  @media (min-width: $breakpoint-tablet) {
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    width: 135px;
+  }
+}
+
+.field__element {
+  padding: 8px 4px;
+  margin-right: 16px;
+  border-bottom: 1px solid white;
+  color: white;
+  width: 85px;
+  @media (min-width: $breakpoint-tablet) {
+    width: 100px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    width: 135px;
+  }
+}
+
+.field__image {
   width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  &--accomodation {
+    padding-bottom: 240px;
+    @media (min-width: $breakpoint-desktop) {
+      padding-bottom: 270px;
+    }
+  }
+  &--academy {
+    margin-top: -172px;
+    width: 100%;
+    background: linear-gradient($fair-gray 80%, white 20%);
+    @media (min-width: $breakpoint-desktop) {
+      margin-top: -192px;
+    }
+  }
+  &--golfABC {
+    margin-top: 32px;
+  }
+}
+
+.section__title {
+  font-size: 16px;
+  margin: 12px 0 8px 0;
+  @media (min-width: $breakpoint-tablet) {
+    margin: 20px;
+    font-size: 20px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 32px;
+    font-size: 28px;
+  }
+  &--center {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.section__more {
+  margin-top: 20px;
+  font-size: 30px;
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 32px;
+    font-size: 40px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 50px;
+  }
+}
+
+.skew {
+  width: 100%;
+  height: 16%;
+  transform: skewY(-2deg);
+  background-color: white;
+
+  @media (min-width: $breakpoint-desktop) {
+    height: 15%;
+  }
+  &--top {
+    position: absolute;
+    top: 20px;
+  }
+  &--reverse {
+    position: absolute;
+    bottom: 20px;
+    padding-top: 50px;
+    transform: skewY(2deg);
+    background-color: $fair-gray;
+    @media (min-width: $breakpoint-tablet) {
+      bottom: 0;
+    }
+  }
+  &--widget {
+    position: absolute;
+    width: 302px;
+    left: -1px;
+    top: -12px
+  }
+}
+
+.newsContainer {
+  border-bottom: 1px solid $base-color;
+  position: relative;
+  padding: 8px 16px 8px 4px;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 12px 32px 16px 4px;
+  }
+}
+
+.news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.news__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.news__text {
+  text-align: justify;
+  width: 100%;
+  margin-right: 4px;
+  font-size: 9px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 11px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 14px;
+  }
+}
+
+.green {
+  color: green;
+}
+
+.white {
+  color: white;
+}
+
+.news__more {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.sunset {
+  width: 100%;
+}
+
+.tournamentContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+
+.tournament__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  &--secondMobile {
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      display: flex;
+    }
+  }
+}
+
+.tournamentCalendar {
+  font-size: 11px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 14px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 16px;
+    padding-bottom: 4px;
+    font-size: 18px;
+  }
+}
+
+.tournament {
+  line-height: 13px;
+  padding: 4px 4px 4px 0;
+  @media (min-width: $breakpoint-desktop) {
+    padding: 8px 8px 8px 0;
+    line-height: 16px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    line-height: 20px;
+    padding: 16px 16px 16px 0;
+  }
+  &--right {
+    display: flex;
+    flex-direction: column;
+  }
+  &--border {
+    @media (min-width: $breakpoint-tablet) {
+      padding-bottom: 4px;
+      border-bottom: 1px solid white;
+    }
+  }
+}
+
+.tournament__month {
+  font-weight: 400;
+  font-size: 9px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 11px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 14px;
+  }
+}
+
+.tournament__text {
+  display: flex;
+  text-align: right;
+  font-size: 9px;
+  font-weight: 100;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 11px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 14px;
+  }
+}
+
+.fieldText {
+  text-align: justify;
+  margin-bottom: -20px;
+  font-size: 9px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 11px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 14px;
+  }
+}
+
+.accomodation__background {
+  position: absolute;
+  transform: skewY(2deg);
+  background-color: #458f98;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.accomodationTitleContainer {
+  margin-top: 10px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 22px;
+    margin-top: 16px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+}
+
+.accomodationTitleInfo {
+  font-size: 10px;
+  padding: 4px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+    padding: 4px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+.accomodation {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  @media (min-width: $breakpoint-tablet) {
+    padding: 8px 0;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    padding: 18px 0 18px 0;
+  }
+}
+
+.accomodation__description {
+  width: 45%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.roomEquipmentList {
+  padding-left: 18px;
+}
+
+.accomodation__info {
+  width: 45%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.academyTitleContainer {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 22px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 28px;
+  }
+}
+
+.academyTitleInfo {
+  text-align: start;
+  padding: 4px;
+  font-size: 10px;
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 15px;
+    padding: 8px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 18px;
+  }
+}
+
+.academy__description {
+  padding: 8px 0 8px 0;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+    padding: 16px 0 16px 0;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+    padding: 32px 0 32px 0;
+  }
+}
+
+.prices {
+  font-size: 12px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 8px 0;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 15px;
+    margin: 16px 0 16px 0;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 18px;
+    margin: 24px 0 24px 0;
+  }
+}
+
+.prices__title {
+  text-align: start;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 0 4px 0;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 17px;
+    padding: 0 0 8px 0;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 20px;
+    padding: 0 0 16px 0;
+  }
+}
+
+.prices__cell {
+  text-align: start;
+  border-bottom: 1px solid $base-color;
+  font-size: 10px;
+  padding: 4px 0;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+    padding: 8px 0 8px 0;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.prices__footnote {
+  text-align: start;
+  width: 100%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.trap {
+  margin-top: 48px;
+  width: 100%;
+  @media (min-width: $breakpoint-desktop) {
+    margin-top: 64px;
+  }
+}
+
+.golfABC__title {
+  margin-top: 20px;
+  margin-bottom: 0;
+  @media (min-width: $breakpoint-tablet) {
+    margin-top: 64px;
+    margin-bottom: 7px;
+  }
+}
+
+.golfABC__description {
+  height: 58%;
+  @media (min-width: $breakpoint-desktop) {
+    height: 70%;
+  }
+}
+
+.golfABC__element {
+  font-size: 10px;
+  &--mobile {
+    display: none;
+    @media (min-width: $breakpoint-tablet) {
+      display: block;
+    }
+  }
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contact__address {
+  width: 50%;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.contact__invoice {
+  width: 50%;
+  font-size: 10px;
+  margin-left: 20px;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+.contact__title {
+  font-weight: 600;
+  font-size: 10px;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 13px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    font-size: 16px;
+  }
+}
+
+#map {
+  margin: 48px;
+  width: 100%;
+  height: 300px;
+  @media (min-width: $breakpoint-tablet) {
+    height: 400px;
+  }
+}
+
+.footer {
+  border-top: 1px solid $base-color;
+  bottom: 0;
+  width: 100%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__logo {
+  display: none;
+  width: 20%;
+  @media (min-width: $breakpoint-tablet) {
+    display: block;
+  }
+}
+
+.footer__content {
+  display: flex;
+  padding: 16px;
+  width: 95%;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 8px;
+  @media (min-width: $breakpoint-tablet) {
+    width: 85%;
+    font-size: 9px;
+  }
+  @media (min-width: $breakpoint-desktop) {
+    width: 65%;
+    font-size: 10px;
+  }
+}
+
+.footer_link {
+  margin-top: 10px;
 }

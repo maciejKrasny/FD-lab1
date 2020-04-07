@@ -2,52 +2,305 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   color: #666666;
+  font-family: "Roboto";
+  position: relative;
+  width: 100%;
 }
 
-header {
-  width: 70%;
-}
-
-header {
+.header {
   display: flex;
   padding: 16px 4px;
+  width: 95%;
+}
+@media (min-width: 768px) {
+  .header {
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    width: 60%;
+  }
 }
 
-.logoContainer {
-  margin: 0 auto;
-  margin-top: 16px;
-  padding: 8px;
+.carousel {
+  position: relative;
+  width: 100%;
+  border-bottom: 3px solid #666666;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .carousel {
+    width: 84%;
+  }
 }
 
-.logo {
-  max-width: 100%;
-  max-height: 100%;
-}
-
-.configContainer {
-  margin: 0;
-  font-size: 14px;
+.carouselContainer {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel__slide {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.carousel__image {
+  width: 100%;
+}
+
+#prevButton {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  left: 4%;
+  font-size: 28px;
+  color: white;
+  opacity: 0.9;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  #prevButton {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1024px) {
+  #prevButton {
+    left: 0;
+    font-size: 48px;
+  }
+}
+
+#nextButton {
+  position: absolute;
+  top: 40%;
+  z-index: 10;
+  right: 4%;
+  font-size: 28px;
+  opacity: 0.9;
+  color: white;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  #nextButton {
+    font-size: 38px;
+  }
+}
+@media (min-width: 1024px) {
+  #nextButton {
+    right: 0;
+    font-size: 48px;
+  }
+}
+
+@media (min-width: 768px) {
+  .widgetContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+.widget {
+  margin-top: 20px;
+  position: relative;
+  color: white;
+  background-color: #458f98;
+  margin-bottom: -50px;
+  z-index: 10;
+  width: 200px;
+  font-size: 11px;
+}
+@media (min-width: 768px) {
+  .widget {
+    margin-bottom: -250px;
+    font-size: 14px;
+    width: 250px;
+  }
+}
+@media (min-width: 1024px) {
+  .widget {
+    font-size: 16px;
+    width: 300px;
+  }
+}
+
+.widget__main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  padding: 4px;
+  margin-top: 24px;
+}
+@media (min-width: 768px) {
+  .widget__main {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .widget__main {
+    font-size: 18px;
+  }
+}
+
+.temperature__image {
+  width: 35%;
+  padding: 0 16px;
+}
+
+.temperature__icon {
+  width: 100%;
+}
+
+.widget__days {
+  display: none;
+  flex-direction: row;
+  padding: 4px;
+}
+@media (min-width: 768px) {
+  .widget__days {
+    display: flex;
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .widget__days {
+    font-size: 16px;
+  }
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  margin-top: -8px;
+}
+
+.header__logo {
+  margin: 0 auto;
+  max-width: 100%;
+  margin-top: 16px;
+  padding: 4px;
+}
+
+.config {
+  margin: 0;
+  display: flex;
+  font-size: 11px;
   flex-direction: column;
   align-items: flex-end;
 }
+@media (min-width: 768px) {
+  .config {
+    font-size: 14px;
+  }
+}
 
-.configElement {
+.config__element {
   margin-bottom: 8px;
 }
 
-.menuContainer {
-  width: 70%;
-  margin-top: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.hamburger {
+  display: inline-block;
+  padding: 5px;
+  width: 35px;
+}
+.hamburger:hover {
+  cursor: pointer;
+  color: red;
+}
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
 }
 
-.languageContainer {
+.hamburger__bar {
+  height: 2px;
+  border-radius: 2px;
+  background-color: #666666;
+  transition: background-color 0.4s;
+  margin: 5px 0;
+}
+.hamburger__bar:nth-child(1) {
+  margin-top: 2px;
+}
+.hamburger__bar:nth-child(3) {
+  margin-bottom: 2px;
+}
+
+.hamburgerContainer {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.menuContainer {
+  position: relative;
+  z-index: 11;
+  width: 95%;
+}
+@media (min-width: 768px) {
+  .menuContainer {
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .menuContainer {
+    width: 60%;
+  }
+}
+
+.menu {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 11px;
+}
+@media (min-width: 768px) {
+  .menu {
+    margin-top: 16px;
+    font-size: 13px;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+@media (min-width: 1024px) {
+  .menu {
+    font-size: 15px;
+  }
+}
+
+.menu__element {
+  border-bottom: thin solid #666666;
+  padding: 4px;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+@media (min-width: 768px) {
+  .menu__element {
+    border: none;
+    padding: 0;
+    width: unset;
+  }
+}
+
+.language {
   display: flex;
   justify-content: flex-end;
 }
@@ -60,18 +313,804 @@ header {
   text-decoration: underline;
 }
 
-.onFieldMenu {
+.content {
+  width: 95%;
+}
+@media (min-width: 768px) {
+  .content {
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  .content {
+    width: 60%;
+  }
+}
+.content--center {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.content--absolute {
+  position: absolute;
+}
+.content--tournament {
+  margin-top: 20px;
+}
+@media (min-width: 768px) {
+  .content--tournament {
+    margin-top: 36px;
+  }
+}
+@media (min-width: 1024px) {
+  .content--tournament {
+    margin-top: 64px;
+  }
+}
+.content--field {
+  margin-bottom: 72px;
+}
+.content--golfabc {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+.content--contact {
+  width: 95%;
+}
+@media (min-width: 768px) {
+  .content--contact {
+    width: 85%;
+  }
+}
+@media (min-width: 1024px) {
+  .content--contact {
+    width: 65%;
+  }
 }
 
-.onFieldMenuElement {
-  padding: 8px 4px;
-  border-bottom: 1px solid #666666;
+.section--first {
+  padding-top: 34px;
+}
+@media (min-width: 768px) {
+  .section--first {
+    padding-top: 64px;
+  }
 }
 
 .field {
+  font-size: 9px;
+  color: white;
+  height: 100%;
+}
+@media (min-width: 768px) {
+  .field {
+    font-size: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .field {
+    font-size: 13px;
+  }
+}
+
+.field__menu {
+  height: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+}
+@media (min-width: 768px) {
+  .field__menu {
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+  }
+}
+@media (min-width: 1024px) {
+  .field__menu {
+    width: 135px;
+  }
+}
+
+.field__element {
+  padding: 8px 4px;
+  margin-right: 16px;
+  border-bottom: 1px solid white;
+  color: white;
+  width: 85px;
+}
+@media (min-width: 768px) {
+  .field__element {
+    width: 100px;
+  }
+}
+@media (min-width: 1024px) {
+  .field__element {
+    width: 135px;
+  }
+}
+
+.field__image {
   width: 100%;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.section--accomodation {
+  padding-bottom: 240px;
+}
+@media (min-width: 1024px) {
+  .section--accomodation {
+    padding-bottom: 270px;
+  }
+}
+.section--academy {
+  margin-top: -172px;
+  width: 100%;
+  background: linear-gradient(#e5eff0 80%, white 20%);
+}
+@media (min-width: 1024px) {
+  .section--academy {
+    margin-top: -192px;
+  }
+}
+.section--golfABC {
+  margin-top: 32px;
+}
+
+.section__title {
+  font-size: 16px;
+  margin: 12px 0 8px 0;
+}
+@media (min-width: 768px) {
+  .section__title {
+    margin: 20px;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .section__title {
+    margin-top: 32px;
+    font-size: 28px;
+  }
+}
+.section__title--center {
+  display: flex;
+  justify-content: center;
+}
+
+.section__more {
+  margin-top: 20px;
+  font-size: 30px;
+}
+@media (min-width: 768px) {
+  .section__more {
+    margin-top: 32px;
+    font-size: 40px;
+  }
+}
+@media (min-width: 1024px) {
+  .section__more {
+    font-size: 50px;
+  }
+}
+
+.skew {
+  width: 100%;
+  height: 16%;
+  transform: skewY(-2deg);
+  background-color: white;
+}
+@media (min-width: 1024px) {
+  .skew {
+    height: 15%;
+  }
+}
+.skew--top {
+  position: absolute;
+  top: 20px;
+}
+.skew--reverse {
+  position: absolute;
+  bottom: 20px;
+  padding-top: 50px;
+  transform: skewY(2deg);
+  background-color: #e5eff0;
+}
+@media (min-width: 768px) {
+  .skew--reverse {
+    bottom: 0;
+  }
+}
+.skew--widget {
+  position: absolute;
+  width: 302px;
+  left: -1px;
+  top: -12px;
+}
+
+.newsContainer {
+  border-bottom: 1px solid #666666;
+  position: relative;
+  padding: 8px 16px 8px 4px;
+}
+@media (min-width: 768px) {
+  .newsContainer {
+    padding: 12px 32px 16px 4px;
+  }
+}
+
+.news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.news__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .news__info {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .news__info {
+    font-size: 16px;
+  }
+}
+
+.news__text {
+  text-align: justify;
+  width: 100%;
+  margin-right: 4px;
+  font-size: 9px;
+}
+@media (min-width: 768px) {
+  .news__text {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1024px) {
+  .news__text {
+    font-size: 14px;
+  }
+}
+
+.green {
+  color: green;
+}
+
+.white {
+  color: white;
+}
+
+.news__more {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .news__more {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .news__more {
+    font-size: 16px;
+  }
+}
+
+.sunset {
+  width: 100%;
+}
+
+.tournamentContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: 100%;
+}
+
+.tournament__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.tournament__row--secondMobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .tournament__row--secondMobile {
+    display: flex;
+  }
+}
+
+.tournamentCalendar {
+  font-size: 11px;
+}
+@media (min-width: 768px) {
+  .tournamentCalendar {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1024px) {
+  .tournamentCalendar {
+    margin-top: 16px;
+    padding-bottom: 4px;
+    font-size: 18px;
+  }
+}
+
+.tournament {
+  line-height: 13px;
+  padding: 4px 4px 4px 0;
+}
+@media (min-width: 1024px) {
+  .tournament {
+    padding: 8px 8px 8px 0;
+    line-height: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .tournament {
+    line-height: 20px;
+    padding: 16px 16px 16px 0;
+  }
+}
+.tournament--right {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .tournament--border {
+    padding-bottom: 4px;
+    border-bottom: 1px solid white;
+  }
+}
+
+.tournament__month {
+  font-weight: 400;
+  font-size: 9px;
+}
+@media (min-width: 768px) {
+  .tournament__month {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1024px) {
+  .tournament__month {
+    font-size: 14px;
+  }
+}
+
+.tournament__text {
+  display: flex;
+  text-align: right;
+  font-size: 9px;
+  font-weight: 100;
+}
+@media (min-width: 768px) {
+  .tournament__text {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1024px) {
+  .tournament__text {
+    font-size: 14px;
+  }
+}
+
+.fieldText {
+  text-align: justify;
+  margin-bottom: -20px;
+  font-size: 9px;
+}
+@media (min-width: 768px) {
+  .fieldText {
+    font-size: 11px;
+  }
+}
+@media (min-width: 1024px) {
+  .fieldText {
+    font-size: 14px;
+  }
+}
+
+.accomodation__background {
+  position: absolute;
+  transform: skewY(2deg);
+  background-color: #458f98;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.accomodationTitleContainer {
+  margin-top: 10px;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .accomodationTitleContainer {
+    font-size: 22px;
+    margin-top: 16px;
+  }
+}
+@media (min-width: 1024px) {
+  .accomodationTitleContainer {
+    font-size: 28px;
+    margin-top: 20px;
+  }
+}
+
+.accomodationTitleInfo {
+  font-size: 10px;
+  padding: 4px;
+}
+@media (min-width: 768px) {
+  .accomodationTitleInfo {
+    font-size: 13px;
+    padding: 4px;
+  }
+}
+@media (min-width: 1024px) {
+  .accomodationTitleInfo {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+
+.accomodation {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+@media (min-width: 768px) {
+  .accomodation {
+    padding: 8px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .accomodation {
+    padding: 18px 0 18px 0;
+  }
+}
+
+.accomodation__description {
+  width: 45%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .accomodation__description {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .accomodation__description {
+    font-size: 16px;
+  }
+}
+
+.roomEquipmentList {
+  padding-left: 18px;
+}
+
+.accomodation__info {
+  width: 45%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .accomodation__info {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .accomodation__info {
+    font-size: 16px;
+  }
+}
+
+.academyTitleContainer {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .academyTitleContainer {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1024px) {
+  .academyTitleContainer {
+    font-size: 28px;
+  }
+}
+
+.academyTitleInfo {
+  text-align: start;
+  padding: 4px;
+  font-size: 10px;
+}
+@media (min-width: 1024px) {
+  .academyTitleInfo {
+    font-size: 15px;
+    padding: 8px;
+  }
+}
+@media (min-width: 1024px) {
+  .academyTitleInfo {
+    font-size: 18px;
+  }
+}
+
+.academy__description {
+  padding: 8px 0 8px 0;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .academy__description {
+    font-size: 13px;
+    padding: 16px 0 16px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .academy__description {
+    font-size: 16px;
+    padding: 32px 0 32px 0;
+  }
+}
+
+.prices {
+  font-size: 12px;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 8px 0;
+}
+@media (min-width: 768px) {
+  .prices {
+    font-size: 15px;
+    margin: 16px 0 16px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .prices {
+    font-size: 18px;
+    margin: 24px 0 24px 0;
+  }
+}
+
+.prices__title {
+  text-align: start;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 0 0 4px 0;
+}
+@media (min-width: 768px) {
+  .prices__title {
+    font-size: 17px;
+    padding: 0 0 8px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .prices__title {
+    font-size: 20px;
+    padding: 0 0 16px 0;
+  }
+}
+
+.prices__cell {
+  text-align: start;
+  border-bottom: 1px solid #666666;
+  font-size: 10px;
+  padding: 4px 0;
+}
+@media (min-width: 768px) {
+  .prices__cell {
+    font-size: 13px;
+    padding: 8px 0 8px 0;
+  }
+}
+@media (min-width: 1024px) {
+  .prices__cell {
+    font-size: 16px;
+  }
+}
+
+.prices__footnote {
+  text-align: start;
+  width: 100%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .prices__footnote {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .prices__footnote {
+    font-size: 16px;
+  }
+}
+
+.trap {
+  margin-top: 48px;
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .trap {
+    margin-top: 64px;
+  }
+}
+
+.golfABC__title {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .golfABC__title {
+    margin-top: 64px;
+    margin-bottom: 7px;
+  }
+}
+
+.golfABC__description {
+  height: 58%;
+}
+@media (min-width: 1024px) {
+  .golfABC__description {
+    height: 70%;
+  }
+}
+
+.golfABC__element {
+  font-size: 10px;
+}
+.golfABC__element--mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .golfABC__element--mobile {
+    display: block;
+  }
+}
+@media (min-width: 768px) {
+  .golfABC__element {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .golfABC__element {
+    font-size: 16px;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.contact__address {
+  width: 50%;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .contact__address {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact__address {
+    font-size: 16px;
+  }
+}
+
+.contact__invoice {
+  width: 50%;
+  font-size: 10px;
+  margin-left: 20px;
+}
+@media (min-width: 768px) {
+  .contact__invoice {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact__invoice {
+    font-size: 16px;
+  }
+}
+
+.contact__title {
+  font-weight: 600;
+  font-size: 10px;
+}
+@media (min-width: 768px) {
+  .contact__title {
+    font-size: 13px;
+  }
+}
+@media (min-width: 1024px) {
+  .contact__title {
+    font-size: 16px;
+  }
+}
+
+#map {
+  margin: 48px;
+  width: 100%;
+  height: 300px;
+}
+@media (min-width: 768px) {
+  #map {
+    height: 400px;
+  }
+}
+
+.footer {
+  border-top: 1px solid #666666;
+  bottom: 0;
+  width: 100%;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__logo {
+  display: none;
+  width: 20%;
+}
+@media (min-width: 768px) {
+  .footer__logo {
+    display: block;
+  }
+}
+
+.footer__content {
+  display: flex;
+  padding: 16px;
+  width: 95%;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 8px;
+}
+@media (min-width: 768px) {
+  .footer__content {
+    width: 85%;
+    font-size: 9px;
+  }
+}
+@media (min-width: 1024px) {
+  .footer__content {
+    width: 65%;
+    font-size: 10px;
+  }
+}
+
+.footer_link {
+  margin-top: 10px;
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */

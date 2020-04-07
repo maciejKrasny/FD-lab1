@@ -7,46 +7,495 @@
   <title>Kalinowe Pola</title>
   <link rel="stylesheet" href="./style/style.scss">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-  <header>
-    <div class="logoContainer">
+  <header class="header">
+    <div class="header__logo">
       <a class="link" href="">
-        <img class="logo" src="http://www.kalinowepola.com/wp-content/themes/kalinowe_pola/img/kalinowe_pola_logo.png"
-          alt="Kalinowe Pola" />
+        <picture>
+          <source srcset="./images/logo.png" media="(min-width: 480px)" />
+          <img src="./images/logoSmall.png" alt="example" />
+        </picture>
       </a>
     </div>
-    <div class="configContainer">
-      <div class="configElement languageContainer">
+    <div class="config">
+      <div class="config__element language">
         <a class="link" lang="pl" title="Polish" href="/pole">PL</a>
         /
         <a class="link" lang="en" title="English" href="/pole">EN</a>
       </div>
-      <a class="configElement">MAPA SERWISU</a>
+      <div class="config__element">MAPA SERWISU</div>
       <em class="fa fa-search searchIcon"></em>
     </div>
   </header>
-  <div class="menuContainer">
-    <a class="link" href="/">AKTUALNOŚCI</a>
-    <a class="link" href="/">TURNIEJE</a>
-    <a class="link" href="/">POLE</a>
-    <a class="link" href="/">NOCLEGI</a>
-    <a class="link" href="/">AKADEMIA</a>
-    <a class="link" href="/">ABC GOLFA</a>
-    <a class="link" href="/">KONTAKT</a>
-  </div>
-  <div>
-    <img scr="/images/field.png" alt="Pole golfowe" >
-    <div class="onFieldMenu">
-      <a class="link onFieldMenuElement" href="/">AKTUALNOŚCI</a>
-      <a class="link onFieldMenuElement" href="/">AKTUALNOŚCI</a>
-      <a class="link onFieldMenuElement" href="/">AKTUALNOŚCI</a>
-      <a class="link onFieldMenuElement" href="/">AKTUALNOŚCI</a>
-      <a class="link onFieldMenuElement" href="/">AKTUALNOŚCI</a>
+  <div class="hamburgerContainer">
+    <div class="hamburger" onclick="myFunction()">
+      <div class="hamburger__bar"></div>
+      <div class="hamburger__bar"></div>
+      <div class="hamburger__bar"></div>
     </div>
-
   </div>
+  <script>
+    function myFunction() {
+      var x = document.getElementById("menu");
+      if (x.style.display === "flex") {
+        x.style.display = "none";
+      } else {
+        x.style.display = "flex"
+        x.style.position = "absolute";
+      }
+    }
+  </script>
+  <div class="menuContainer">
+    <div id="menu" class="menu">
+      <a class="link menu__element" href="/">AKTUALNOŚCI</a>
+      <a class="link menu__element" href="/">TURNIEJE</a>
+      <a class="link menu__element" href="/">POLE</a>
+      <a class="link menu__element" href="/">NOCLEGI</a>
+      <a class="link menu__element" href="/">AKADEMIA</a>
+      <a class="link menu__element" href="/">ABC GOLFA</a>
+      <a class="link menu__element" href="/">KONTAKT</a>
+    </div>
+  </div>
+  <div class="section">
+    <div class="content widgetContainer ">
+      <div class="widget">
+        <div class="skew skew--widget"></div>
+        <div class="widget__main">
+          <div clas="temperature__location">Kalinowo</div>
+          <div class="temperature__image">
+            <img src="./icons/01d.png">
+          </div>
+          <div class="temperature__value">
+            <p>- °<span>C</span></p>
+          </div>
+        </div>
+        <div class="widget__days">
+          <div class="day">
+            <img src="./icons/unknown.png">
+            <div>-</div>
+            <p>- °<span>C</span></p>
+          </div>
+          <div class="day">
+            <img class="day__image" src="./icons/unknown.png">
+            <div>-</div>
+            <p>- °<span>C</span></p>
+          </div>
+          <div class="day day__third">
+            <img src="./icons/unknown.png">
+            <div>-</div>
+            <p>- °<span>C</span></p>
+          </div>
+          <div class="day">
+            <img src="./icons/unknown.png">
+            <div>-</div>
+            <p>- °<span>C</span></p>
+          </div>
+        </div>
+      </div>
+      <script src="scripts/weather.js"></script>
+    </div>
+  </div>
+  <div class="section section--first">
+    <div class="content content--absolute field">
+      <div class="field__menu">
+        <a class="link field__element" href="/">POLECANE KSIĄŻKI</a>
+        <a class="link field__element" href="/">SYMULATOR</a>
+        <a class="link field__element" href="/">ETYKIETA GOLFA</a>
+        <a class="link field__element" href="/">ZASADY GRY</a>
+        <a class="link field__element" href="/">POJĘCIA GOLFOWE</a>
+        <a class="link field__element" href="/">HISTORIA GOLFA</a>
+        <a class="link field__element" href="/">NOCLEGI</a>
+        <a class="link field__element" href="/">POLECANE FIRMY</a>
+      </div>
+    </div>
+    <div class="skew skew--top"></div>
+    <img class="field__image" src="./images/field.png" alt="Pole golfowe">
+  </div>
+  <div class="section">
+    <div class="content content--center">
+      <p class="section__title">
+        AKTUALNOŚCI
+      </p>
+      <div class="newsContainer">
+        <div class="news">
+          <div class="news__info">
+            <time>2017-12-30</time>
+            <b>Dzisiaj pole zamknięte.</b>
+          </div>
+          <div class="news__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Duis
+            aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat
+            cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <a class="link green news__more" href="/">więcej ></a>
+      </div>
+      <div class="newsContainer">
+        <div class="news">
+          <div class="news__info">
+            <time>2017-12-30</time>
+            <b>Dzisiaj pole zamknięte.</b>
+          </div>
+          <div class="news__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Duis
+            aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat
+            cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <a class="link green news__more" href="/">więcej ></a>
+      </div>
+      <div class="newsContainer">
+        <div class="news">
+          <div class="news__info">
+            <time>2017-12-30</time>
+            <b>Dzisiaj pole zamknięte.</b>
+          </div>
+          <div class="news__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Duis
+            aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat
+            cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <a class="link green news__more" href="/">więcej ></a>
+      </div>
+      <div class="newsContainer">
+        <div class="news">
+          <div class="news__info">
+            <time>2017-12-30</time>
+            <b>Dzisiaj pole zamknięte.</b>
+          </div>
+          <div class="news__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore
+            magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+            Duis
+            aute irure
+            dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat
+            cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+        </div>
+        <a class="link green news__more" href="/">więcej ></a>
+      </div>
+      <span class="section__more">
+        <em class="fa fa-long-arrow-down green"></em>
+      </span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="content content--absolute content--tournament">
+      <p class="section__title white section__title--center">
+        TURNIEJE
+      </p>
+      <div class="tournamentCalendar white">
+        KALENDARZ TURNIEJÓW 2018
+      </div>
+      <div class="tournamentContainer">
+        <div class="tournament__row">
+          <div class="tournament">
+            <div class="tournament--border">
+              <div class="tournament__month">Kwiecień / April</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+            </div>
+          </div>
+          <div class="tournament tournament--right">
+            <div class="tournament--border tournament--right">
+              <div class="tournament__month">Kwiecień / April</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+            </div>
+          </div>
+        </div>
+        <div class="tournament__row tournament__row--secondMobile">
+          <div class="tournament">
+            <div class="tournament__month">Kwiecień / April</div>
+            <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+            <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+            <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+          </div>
+          <div class="tournament tournament--right">
+            <div class="tournament--right">
+              <div class="tournament__month">Kwiecień / April</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+              <div class="tournament__text">08.04 - Turniej otwarcia sezonu</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="sunset" src="./images/sunset.png" alt="Pole zachód">
+  </div>
+  <div class="section">
+    <div class="content content--field">
+      <p class="section__title section__title--center">
+        POLE
+      </p>
+      <div class="fieldText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+        pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+  <div class="section section--accomodation white">
+    <div class="content content--center">
+      <div class="accomodationTitleContainer">
+        NOCLEGI
+        <div class="accomodationTitleInfo">
+          <a class="link white" href="">CENNIK </a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link white" href="">GALERIA</a>
+        </div>
+      </div>
+      <div class="accomodation">
+        <div class="accomodation__description">
+          <p>
+            ,,Kalinowe Pola Golf Village" to najnowsza propozycja noclegów dla wszystkich odwiedzającyhc nasze pole
+            golfowe.
+            Z myślą o osobach chcących pozostać u nas dłużej i cieszyć się możliwością korzystania z pełnej palety
+            atrakcji,
+            oddajemy do Państwa dyspozycji 11 komfortowych domków apartamentowych, z których każdy składa się z dwóch
+            odrębnych pokoi
+            2 osobowych z łazienkami i tarasem. Idealne położenie niedaleko budynku klubowego, piękne otoczenie pola
+            golfowego oraz cisza
+            i spokój grawantują, że Państwa wypoczynek będzie w pełni udany
+          </p>
+          <p>
+            Każdy pokój wyposażony jest:
+            <ul class="roomEquipmentList">
+              <li>łazienkę z kabiną prysznicową;</li>
+              <li>komplet ręczników i kosmetyków firmy Yves Rocher</li>
+              <li>telewizor LCD;</li>
+              <li>indywidualny taras z kompletem mebli ogrodowych;</li>
+              <li>lodówkę;</li>
+              <li>klimatyzację;</li>
+            </ul>
+          </p>
+        </div>
+        <div class="accomodation__info">
+          <p>
+            Doba hotelowa zaczyna się od godziny 14.00 i kończy o godzinie 12.00. Do Państwa dyspozycji oddajemy
+            również
+            bezpłatny parking.
+          </p>
+          <p>
+            W cenie pokoju wliczone jest śniadanie, które serwujemy w restauracji ,,19th Hole" znajdującej się w
+            budynku
+            klubowym.
+          </p>
+          <p>
+            Rezerwacja pokoi:
+            <div>
+              Mobile: 0048 515 292 034
+            </div>
+            <div>
+              rezerwacja@kalinowepola.pl
+            </div>
+          </p>
+          <p>
+            Godziny otwarcia recepcji:
+          </p>
+          <p>
+            <div>Poniedziałek - Piątek: 09.00 - 17.00</div>
+            <div>Sobota - Niedziela: 8.00 - 17.00</div>
+          </p>
+          <p>Serdecznie Zapraszamy !</p>
+        </div>
+      </div>
+      <div class="carouselContainer">
+        <i id="prevButton" class="fa fa-arrow-left"></i>
+        <i id="nextButton" class="fa fa-arrow-right"></i>
+        <div class="carousel">
+          <div class="carousel__slide">
+            <img id="lastClone" class="carousel__image" src="images/room2.jpg">
+            <img class="carousel__image" src="images/room1.jpg">
+            <img class="carousel__image" src="images/room2.jpg">
+            <img id="firstClone" class="carousel__image" src="images/room1.jpg">
+          </div>
+        </div>
+      </div>
+      <script src="./scripts/slider.js"></script>
+      <div class="section__more">
+        <em class="fa fa-long-arrow-down"></em>
+      </div>
+    </div>
+    <div class="accomodation__background"></div>
+    <div class="skew skew--reverse"></div>
+  </div>
+  <div class="section section--academy">
+    <div class="content">
+      <div class="academyTitleContainer">
+        AKADEMIA
+        <div class="academyTitleInfo">
+          <a class="link" href="">POLE 6-CIO DOŁKOWE</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link" href="">DRIVING RANGE</a>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <a class="link" href="">LEKCJE Z INSTRUKTOREM</a>
+        </div>
+      </div>
+      <div class="academy__description">
+        Z wyślą o wszystkich osobach, które dopiero planują rozpocząć przygodę z golfem stworzyliśmy Akademię Golfa.
+        Jest to 6 krótkich dołków (najdłuższy ma 130m), na których możnaa grać od razu po odyciu pierwszej lekcji w
+        golfa.
+        Tutaj nauczać będziemy etykiety oraz reguł golfowych
+      </div>
+      <table class="prices">
+        <th id="price" class="prices__title">
+          CENNIK
+        </th>
+        <tr>
+          <th id="academy" class="prices__cell">AKADEMIA GOLFA</th>
+          <th id="KPGCmembers" class="prices__cell">DLA CZŁONKÓW KPGC</th>
+          <th id="guest" class="prices__cell">DLA GOŚCI</th>
+        </tr>
+        <tr>
+          <td class="prices__cell">Green fee*</td>
+          <td class="prices__cell">0 PLN</td>
+          <td class="prices__cell">30 PLN</td>
+        </tr>
+        <tr>
+          <td class="prices__cell">Wypożyczenie 1 szt. kija</td>
+          <td class="prices__cell">10 PLN</td>
+          <td class="prices__cell">15 PLN</td>
+        </tr>
+      </table>
+      <div class="prices__footnote">
+        * płata za grę na polu
+      </div>
+      <img class="trap" src="./images/trap.jpg">
+    </div>
+  </div>
+  <div class="section section--golfABC">
+    <img class="shoes" width="100%" src="./images/shoes.png">
+    <div class="content content--golfabc  content--absolute white">
+      <p class="section__title golfABC__title">ABC GOLFA</p>
+      <div class="golfABC__description">
+        <p class="golfABC__element">
+          Nikt dokładnie nie wie, gdzie i kiedy narodziła się historia golfa. Legenda głosi, że wymyślili go szkoccy
+          pasterze owiec...
+          pierwsze zapisy o grze pochodzą z roku 1457 ... wiadomo także, że chętnie grawała w golfa Maria Stuart a
+          pierwszy klub golfowy założono
+          w połowie XVIII wieku...
+        </p>
+        <p class="golfABC__element golfABC__element--mobile">
+          Źródła historyczne donoszą, żę w 1457 roku król Szkocji James IV wydał edykt zabraniający swoim poddanym,
+          którzy
+          poświęcali na nią czas
+          przeznaczony na obowiązkowe ćwiczenia łucznictwa. Zakaz został jednak szybko, zaledwie po pięciu latach,
+          zniesiony. Król sam zaczął grywać
+          w golfa bardzo chętnie i namiętnie. Jemu właśnie przypisuje się rozpowszechnienie gry (w formie zbliżonej do
+          tej, jaką znamy obecnie)
+          na terenie Anglii i Szkocji.
+        </p>
+      </div>
+      <span class="section__more">
+        <em class="fa fa-long-arrow-down"></em>
+      </span>
+    </div>
+    </img>
+  </div>
+  <div class="section">
+    <div class="content--center content--contact">
+      <p class="section__title">
+        KONTAKT
+      </p>
+      <div class="contact">
+        <div class="contact__address">
+          <div class="contact__title">
+            Adres pola:
+          </div>
+          <p>Kalinowo k/Niesulic<br>ul. Golfowa 1<br>66-213 Skąpe<br>woj. lubuskie</p>
+          <p>marketing@kalinowepola.pl</p>
+          <p>tel. +48 515 292 032</p>
+          <p>GPS: 52o 12'32.55"N & 15o 22'32.77"E</p>
+        </div>
+        <div class="contact__invoice">
+          <div class="contact__title">
+            Dane do faktury:
+          </div>
+          <p>Kalinowe Pola Sp. z o.o.<br>ul. Golfowa 1, Kalinowo<br>66-213 Skąpe</p>
+          <p>NIP: 927-190-69-64</p>
+          <p>REGON: 08029</p>
+          <p>KRS: 0000316925</p>
+          <p>BZ WBK PL 73 1090 1593 0000 0001 1028 5380</p>
+          <p>BZ WBK EUR 30 1090 1593 0000 0001 3215 5386</p>
+        </div>
+      </div>
+      <!-- <script type=“text/javascript” src="./scripts/map.js"></script> -->
+
+      <div id="map">
+      </div>
+      <script>
+        function initMap() {
+          var location = {
+            lat: 52.2051045,
+            lng: 15.378528
+          };
+          var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: location
+          });
+        }
+
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2JEnL_z2p3-Sag7s738jplLVbWN2EeFc&callback=initMap"
+        async defer></script>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer__content">
+      <img class="footer__logo" src="images/logo.png">
+      <a class="link footer__link">POLITYKA PRYWATNOŚCI</a>
+      <a class="link footer__link">REGULAMIN</a>
+      <a class="link footer__link">WSPÓŁPRACA</a>
+      <a class="link footer__link">NOCLEGI</a>
+      <a class="link footer__link">REJESTRACJA</a>
+      <a class="link footer__link">HOTEL</a>
+    </div>
+  </footer>
 </body>
 
 </html>
