@@ -44,24 +44,29 @@ function getDay(date) {
 }
 
 function getWeather(latitude, longitude) {
-  // let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&cnt=5&appid=${key}`;
-  // fetch(api)
-    // .then(function(response){
-    let data = response;
-  for (let i = 1; i < 5; i++) {
-   weatherSmall.push({
-    temperature: Math.floor(data.daily[i].temp.day - KELVIN),
-    day: getDay(data.daily[i].dt),
-    icon: data.daily[i].weather[0].icon
-  })}
-  weatherMain = {
-    temperature: Math.floor(data.daily[0].temp.day - KELVIN),
-    iconId: data.daily[0].weather[0].icon,
-    unit: "celcius" 
-  }
-
-  displayMainWeather();
-  displaySmallWeather();
+  let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&cnt=5&appid=${key}`;
+  fetch(api)
+    .then(function(response){
+    let data = response.json();
+    return data;
+    }).then(function(data){
+      console.log(data.daily)
+      for (let i = 1; i < 5; i++) {
+       weatherSmall.push({
+        temperature: Math.floor(data.daily[i].temp.day - KELVIN),
+        day: getDay(data.daily[i].dt),
+        icon: data.daily[i].weather[0].icon
+      })}
+      weatherMain = {
+        temperature: Math.floor(data.daily[0].temp.day - KELVIN),
+        iconId: data.daily[0].weather[0].icon,
+        unit: "celcius" 
+      }
+    }).then(function() {
+      displayMainWeather();
+      displaySmallWeather();
+    
+    })
 
       // return data;
     // })

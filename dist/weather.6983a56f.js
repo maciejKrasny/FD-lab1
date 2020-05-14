@@ -1197,26 +1197,30 @@ function getDay(date) {
 }
 
 function getWeather(latitude, longitude) {
-  // let api = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&cnt=5&appid=${key}`;
-  // fetch(api)
-  // .then(function(response){
-  var data = response;
+  var api = "https://api.openweathermap.org/data/2.5/onecall?lat=".concat(latitude, "&lon=").concat(longitude, "&cnt=5&appid=").concat(key);
+  fetch(api).then(function (response) {
+    var data = response.json();
+    return data;
+  }).then(function (data) {
+    console.log(data.daily);
 
-  for (var i = 1; i < 5; i++) {
-    weatherSmall.push({
-      temperature: Math.floor(data.daily[i].temp.day - KELVIN),
-      day: getDay(data.daily[i].dt),
-      icon: data.daily[i].weather[0].icon
-    });
-  }
+    for (var i = 1; i < 5; i++) {
+      weatherSmall.push({
+        temperature: Math.floor(data.daily[i].temp.day - KELVIN),
+        day: getDay(data.daily[i].dt),
+        icon: data.daily[i].weather[0].icon
+      });
+    }
 
-  weatherMain = {
-    temperature: Math.floor(data.daily[0].temp.day - KELVIN),
-    iconId: data.daily[0].weather[0].icon,
-    unit: "celcius"
-  };
-  displayMainWeather();
-  displaySmallWeather(); // return data;
+    weatherMain = {
+      temperature: Math.floor(data.daily[0].temp.day - KELVIN),
+      iconId: data.daily[0].weather[0].icon,
+      unit: "celcius"
+    };
+  }).then(function () {
+    displayMainWeather();
+    displaySmallWeather();
+  }); // return data;
   // })
   // .then(function(data){
   // weather.temperature.value = Math.floor(data.main.temp - KELVIN);
@@ -1275,7 +1279,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54956" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64302" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
